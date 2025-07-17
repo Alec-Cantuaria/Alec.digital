@@ -94,16 +94,6 @@
       background: var(--cor-cta-hover);
       transform: translateY(-3px);
     }
-
-    /* Estilos Adicionais para a foto no header */
-    .hero-photo {
-      max-width: 300px;
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    }
     
     /* Header (Hero Section) */
     .hero {
@@ -126,6 +116,7 @@
       filter: blur(80px);
     }
     
+    /* Corrigido: Agora a sua foto tem a animação de pulso */
     .profile-img {
       max-width: 150px;
       width: 100%;
@@ -223,40 +214,11 @@
     }
     
     /* O Que Fazemos (Services Cards) */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-    
-    .service-card {
-      background: var(--cor-fundo-secundario);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px var(--cor-sombra);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px var(--cor-sombra);
-    }
-    
     .service-card img {
       width: 100%;
       height: 200px;
       object-fit: cover;
       display: block;
-    }
-    
-    .service-card-content {
-      padding: 2rem;
-    }
-    
-    .service-card-content h3 {
-      color: var(--cor-cta-principal);
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
     }
     
     /* Formulário (CTA Section) */
@@ -304,7 +266,8 @@
 <body>
   <header class="hero">
     <div class="container">
-      <img src="eu.jpg" alt="Seu Nome - Especialista em Tráfego Pago" class="hero-photo">
+      <img src="eu.jpg" alt="Foto de Perfil" class="profile-img">
+      <h1>Impulsione Seu Negócio Local com Tráfego Pago</h1>
       <p class="hero-subtitle">Campanhas estratégicas, automações e landing pages que vendem para atrair clientes do seu bairro ou cidade.</p>
       <a href="https://wa.me/5584999999999" class="cta-button">Fale agora comigo no WhatsApp</a>
     </div>
@@ -343,14 +306,14 @@
               </div>
             </div>
             <div class="carousel-card">
-              <img src="assets/estudio-tatuagem.png" alt="Estúdio de Tatuagem" style="width:100%; border-radius:8px; margin-bottom:1rem;" />
+              <img src="estudio-tatuagem.png" alt="Estúdio de Tatuagem" style="width:100%; border-radius:8px; margin-bottom:1rem;" />
               <div>
                 <strong>🎨 Estúdio de Tatuagem</strong>
                 <p>"Campanha com criativos locais gerou 97 agendamentos em 3 semanas, com orçamento diário de R$10."</p>
               </div>
             </div>
             <div class="carousel-card">
-              <img src="assets/piercing-natal.jpg" alt="Loja de Piercing" style="width:100%; border-radius:8px; margin-bottom:1rem;" />
+              <img src="piercing-natal.jpg" alt="Loja de Piercing" style="width:100%; border-radius:8px; margin-bottom:1rem;" />
               <div>
                 <strong>💎 Loja de Piercing em Natal</strong>
                 <p>"Mais de 150 contatos via WhatsApp com uma oferta flash e impulsionamento geolocalizado."</p>
