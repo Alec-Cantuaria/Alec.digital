@@ -174,7 +174,7 @@
     .carousel-container {
       position: relative;
       overflow: hidden;
-      padding-bottom: 2.5rem;
+      padding-bottom: 1rem;
       scrollbar-width: none; /* Firefox */
     }
     
@@ -182,10 +182,12 @@
       display: none; /* Chrome, Safari */
     }
     
-    .carousel-track {
+    .carousel {
       display: flex;
-      transition: transform 0.5s ease;
       gap: 1.5rem;
+      padding: 0.5rem 0;
+      transition: transform 0.5s ease;
+      will-change: transform;
     }
     
     .carousel-card {
@@ -210,31 +212,6 @@
       color: var(--cor-cta-principal);
       font-weight: 600;
       margin-bottom: 0.5rem;
-    }
-    
-    .carousel-buttons {
-      position: absolute;
-      bottom: 0;
-      right: 1.5rem;
-      display: flex;
-      gap: 0.5rem;
-    }
-    
-    .carousel-button {
-      background: var(--cor-cta-principal);
-      border: none;
-      color: var(--cor-fundo);
-      font-size: 1.2rem;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 3px 6px var(--cor-sombra);
-    }
-    
-    .carousel-button:hover {
-      background: var(--cor-cta-hover);
     }
     
     /* O Que Fazemos (Services Cards) */
@@ -314,6 +291,37 @@
         margin-bottom: 0.5rem;
       }
     }
+
+    /* Botões do Carrossel */
+    .carousel-buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      pointer-events: none;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+    
+    .carousel-button {
+      background: var(--cor-cta-principal);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.5rem;
+      color: var(--cor-fundo);
+      cursor: pointer;
+      pointer-events: auto;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 5px 15px var(--cor-sombra);
+    }
+    
+    .carousel-button:hover {
+      background: var(--cor-cta-hover);
+    }
   </style>
 </head>
 <body>
@@ -351,22 +359,30 @@
       <div class="container">
         <h2>Provas Sociais</h2>
         <div class="carousel-container">
-          <div class="carousel-track" id="carouselTrack">
+          <div class="carousel" id="carouselTrack">
             <div class="carousel-card">
-              <strong>📈 Salão de Beleza em Natal</strong>
-              <p>+134 agendamentos em 30 dias com apenas R$300 de investimento.</p>
+              <div>
+                <strong>📈 Salão de Beleza em Natal</strong>
+                <p>+134 agendamentos em 30 dias com apenas R$300 de investimento.</p>
+              </div>
             </div>
             <div class="carousel-card">
-              <strong>💎 Loja de Piercing</strong>
-              <p>150 contatos com uma oferta flash e impulsionamento geolocalizado.</p>
+              <div>
+                <strong>🍕 Pizzaria no interior</strong>
+                <p>Aumento de 70% nos pedidos via delivery com campanha regionalizada.</p>
+              </div>
             </div>
             <div class="carousel-card">
-              <strong>🎨 Estúdio de Tatuagem</strong>
-              <p>97 agendamentos em 3 semanas, com orçamento de R$10/dia.</p>
+              <div>
+                <strong>🛠 Loja de peças</strong>
+                <p>Campanha com formulário gerou 112 leads qualificados em 15 dias.</p>
+              </div>
             </div>
             <div class="carousel-card">
-              <strong>🎓 Curso Online</strong>
-              <p>+492 leads com custo por lead de R$0,89, com página e automação.</p>
+              <div>
+                <strong>🏋‍♀ Academia</strong>
+                <p>Dobramos o número de matrículas no mês, focando em pessoas próximas ao estabelecimento.</p>
+              </div>
             </div>
           </div>
           <div class="carousel-buttons">
@@ -428,8 +444,7 @@
     const totalSlides = slides.length;
 
     function updateCarousel() {
-      track.style.transform = 'translateX(' + (-currentIndex * (slides[0].offsetWidth + 24)) + 'px)';
-      // 24px = gap (1.5rem = 24px) between cards
+      track.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
     }
 
     function moveSlide(direction) {
@@ -439,14 +454,9 @@
       updateCarousel();
     }
 
-    window.addEventListener('resize', updateCarousel);
-
     setInterval(() => {
       moveSlide(1);
     }, 4000);
-
-    // Inicializa o carousel na carga da página
-    window.onload = updateCarousel;
   </script>
 </body>
 </html>
