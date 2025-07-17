@@ -2,140 +2,423 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tráfego Pago Local e Automação</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tráfego Pago Local e Automação | Especialista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
+    /* Estilos Gerais */
+    :root {
+      --cor-fundo: #0a0a0a;
+      --cor-fundo-secundario: #121212;
+      --cor-texto: #e0e0e0;
+      --cor-texto-titulo: #ffffff;
+      --cor-cta-principal: #00e676; /* Verde Neon */
+      --cor-cta-hover: #00c853;
+      --cor-sombra: rgba(0, 0, 0, 0.4);
+    }
+    
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
     }
-
-    header {
-      background-color: #101820;
-      color: #fff;
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--cor-fundo);
+      color: var(--cor-texto);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 0 1.5rem;
+    }
+    
+    h1, h2 {
+      color: var(--cor-texto-titulo);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 0.5rem;
+    }
+    
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
       text-align: center;
-      padding: 60px 20px;
-    }
-
-    header h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-
-    .cta-button {
-      background-color: #f2aa4c;
-      color: #101820;
-      text-decoration: none;
-      padding: 12px 24px;
-      font-weight: bold;
-      border-radius: 8px;
-      margin-top: 20px;
+      margin-bottom: 3rem;
+      position: relative;
       display: inline-block;
     }
-
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background-color: var(--cor-cta-principal);
+      border-radius: 2px;
+    }
+    
     section {
-      padding: 50px 20px;
-      max-width: 1000px;
-      margin: 0 auto;
+      padding: 5rem 0;
     }
-
-    h2 {
+    
+    .cta-button {
+      background: var(--cor-cta-principal);
+      color: var(--cor-fundo);
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 700;
+      display: inline-block;
+      margin-top: 2rem;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 8px 15px var(--cor-sombra);
+    }
+    
+    .cta-button:hover {
+      background: var(--cor-cta-hover);
+      transform: translateY(-3px);
+    }
+    
+    /* Header (Hero Section) */
+    .hero {
+      background-color: var(--cor-fundo-secundario);
       text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .carousel-container {
+      padding: 6rem 1.5rem;
       position: relative;
       overflow: hidden;
     }
-
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      background: rgba(0, 230, 118, 0.1);
+      border-radius: 50%;
+      filter: blur(80px);
+    }
+    
+    .profile-img {
+      max-width: 150px;
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid var(--cor-cta-principal);
+      margin-bottom: 1.5rem;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.4); }
+      70% { box-shadow: 0 0 0 20px rgba(0, 230, 118, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0); }
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Características (Services) */
+    .features-list {
+      display: grid;
+      gap: 1.5rem;
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    
+    .features-list li {
+      background: var(--cor-fundo-secundario);
+      padding: 1.5rem;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .features-list li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px var(--cor-sombra);
+    }
+    
+    .features-list li::before {
+      content: '✔';
+      font-size: 1.5rem;
+      color: var(--cor-cta-principal);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    
+    /* Provas Sociais (Testimonials Carousel) */
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 2.5rem;
+      scrollbar-width: none; /* Firefox */
+    }
+    
+    .carousel-container::-webkit-scrollbar {
+      display: none; /* Chrome, Safari */
+    }
+    
     .carousel-track {
       display: flex;
-      transition: transform 0.5s ease-in-out;
+      transition: transform 0.5s ease;
+      gap: 1.5rem;
     }
-
+    
     .carousel-card {
-      min-width: 100%;
-      box-sizing: border-box;
-      padding: 20px;
-      background-color: #fff;
+      background: var(--cor-fundo-secundario);
+      padding: 2rem;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      text-align: center;
+      min-width: 300px;
+      flex-shrink: 0;
+      box-shadow: 0 5px 15px var(--cor-sombra);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
     }
-
+    
+    .carousel-card:hover {
+      transform: scale(1.03);
+    }
+    
     .carousel-card strong {
       display: block;
-      font-size: 1.2em;
-      margin-bottom: 10px;
+      color: var(--cor-cta-principal);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
     }
-
+    
     .carousel-buttons {
+      position: absolute;
+      bottom: 0;
+      right: 1.5rem;
       display: flex;
-      justify-content: center;
-      margin-top: 20px;
+      gap: 0.5rem;
     }
-
+    
     .carousel-button {
-      background-color: #f2aa4c;
+      background: var(--cor-cta-principal);
       border: none;
-      padding: 10px 16px;
-      margin: 0 10px;
-      border-radius: 8px;
+      color: var(--cor-fundo);
+      font-size: 1.2rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
       cursor: pointer;
-      font-weight: bold;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 3px 6px var(--cor-sombra);
     }
-
-    footer {
-      background-color: #101820;
-      color: #fff;
+    
+    .carousel-button:hover {
+      background: var(--cor-cta-hover);
+    }
+    
+    /* O Que Fazemos (Services Cards) */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    
+    .service-card {
+      background: var(--cor-fundo-secundario);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px var(--cor-sombra);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px var(--cor-sombra);
+    }
+    
+    .service-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .service-card-content {
+      padding: 2rem;
+    }
+    
+    .service-card-content h3 {
+      color: var(--cor-cta-principal);
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Formulário (CTA Section) */
+    .contact-cta {
+      background-color: var(--cor-fundo-secundario);
       text-align: center;
-      padding: 20px;
+      border-radius: 12px;
+      padding: 4rem 2rem;
+      box-shadow: 0 10px 30px var(--cor-sombra);
+    }
+    
+    .contact-cta h2 {
+      margin-bottom: 1rem;
+    }
+    
+    .contact-cta p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--cor-fundo-secundario);
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      font-size: 0.8rem;
+      color: #777;
+    }
+    
+    @media (min-width: 768px) {
+      .features-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .features-list li {
+        text-align: center;
+        flex-direction: column;
+      }
+      .features-list li::before {
+        margin-bottom: 0.5rem;
+      }
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>Impulsione Seu Negócio Local com Tráfego Pago</h1>
-    <p>Campanhas estratégicas, automações e landing pages que vendem.</p>
-    <a href="https://wa.me/5584999999999" class="cta-button">Fale comigo no WhatsApp</a>
+  <header class="hero">
+    <div class="container">
+      <img src="https://placehold.co/200x200/00e676/0a0a0a/png?text=SEU+LOGO" alt="Foto de Perfil" class="profile-img">
+      <h1>Impulsione Seu Negócio Local com Tráfego Pago</h1>
+      <p class="hero-subtitle">Campanhas estratégicas, automações e landing pages que vendem para atrair clientes do seu bairro ou cidade.</p>
+      <a href="https://wa.me/5584999999999" class="cta-button">Fale agora comigo no WhatsApp</a>
+    </div>
   </header>
 
-  <section>
-    <h2>Provas Sociais</h2>
-    <div class="carousel-container">
-      <div class="carousel-track" id="carouselTrack">
-        <div class="carousel-card">
-          <strong>📈 Salão de Beleza</strong>
-          <p>+134 agendamentos em 30 dias com apenas R$300 de investimento.</p>
-        </div>
-        <div class="carousel-card">
-          <strong>💎 Loja de Piercing</strong>
-          <p>150 contatos com uma oferta flash e impulsionamento geolocalizado.</p>
-        </div>
-        <div class="carousel-card">
-          <strong>🎨 Estúdio de Tatuagem</strong>
-          <p>97 agendamentos em 3 semanas, com orçamento de R$10/dia.</p>
-        </div>
-        <div class="carousel-card">
-          <strong>🎓 Curso Online</strong>
-          <p>+492 leads com custo por lead de R$0,89, com página e automação.</p>
+  <main>
+    <section id="servicos">
+      <div class="container">
+        <h2>O que eu posso fazer por você</h2>
+        <ul class="features-list">
+          <li>
+            <h3>Tráfego Pago Local</h3>
+            <p>Criar anúncios para atrair clientes do seu bairro ou cidade, usando o poder do Facebook e Instagram.</p>
+          </li>
+          <li>
+            <h3>Automação Inteligente</h3>
+            <p>Automatizar o WhatsApp e Instagram para responder rápido e qualificar os seus leads 24/7.</p>
+          </li>
+          <li>
+            <h3>Landing Pages Vendedoras</h3>
+            <p>Construir uma página de vendas profissional e otimizada para converter visitantes em clientes.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="provas">
+      <div class="container">
+        <h2>Provas Sociais</h2>
+        <div class="carousel-container">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-card">
+              <strong>📈 Salão de Beleza em Natal</strong>
+              <p>+134 agendamentos em 30 dias com apenas R$300 de investimento.</p>
+            </div>
+            <div class="carousel-card">
+              <strong>💎 Loja de Piercing</strong>
+              <p>150 contatos com uma oferta flash e impulsionamento geolocalizado.</p>
+            </div>
+            <div class="carousel-card">
+              <strong>🎨 Estúdio de Tatuagem</strong>
+              <p>97 agendamentos em 3 semanas, com orçamento de R$10/dia.</p>
+            </div>
+            <div class="carousel-card">
+              <strong>🎓 Curso Online</strong>
+              <p>+492 leads com custo por lead de R$0,89, com página e automação.</p>
+            </div>
+          </div>
+          <div class="carousel-buttons">
+            <button class="carousel-button" onclick="moveSlide(-1)">⟨</button>
+            <button class="carousel-button" onclick="moveSlide(1)">⟩</button>
+          </div>
         </div>
       </div>
-      <div class="carousel-buttons">
-        <button class="carousel-button" onclick="moveSlide(-1)">⟨</button>
-        <button class="carousel-button" onclick="moveSlide(1)">⟩</button>
+    </section>
+
+    <section id="solucoes">
+      <div class="container">
+        <h2>Nossas Soluções Completas</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <img src="https://source.unsplash.com/featured/?digital+marketing,advertising" alt="Tráfego Pago">
+            <div class="service-card-content">
+              <h3>Tráfego Pago Local</h3>
+              <p>Campanhas no Instagram e Facebook focadas em atrair clientes da sua cidade. Público segmentado, oferta clara e WhatsApp direto.</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <img src="https://source.unsplash.com/featured/?automation,chat+bot" alt="Automação WhatsApp">
+            <div class="service-card-content">
+              <h3>Automação no WhatsApp</h3>
+              <p>Resposta automática, qualificação de cliente e integração com planilhas ou CRM. Menos trabalho manual para você.</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <img src="https://source.unsplash.com/featured/?web+design,landing+page" alt="Criação de Sites">
+            <div class="service-card-content">
+              <h3>Landing Pages e Sites</h3>
+              <p>Páginas modernas e responsivas que vendem por você. Ideal para serviços, agendamentos ou mostrar portfólio.</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="contact-cta">
+      <div class="container">
+        <h2>Pronto para Vender Mais?</h2>
+        <p>Preencha o formulário e receba uma proposta personalizada para seu negócio, sem compromisso.</p>
+        <a href="https://tally.so/r/your-form-id" class="cta-button">Solicitar um Orçamento</a>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2025 Alec Cantuária. Todos os direitos reservados.</p>
+    <div class="container">
+      <p>© 2025 Seu Nome. Todos os direitos reservados. Tráfego Pago Local & Automação.</p>
+    </div>
   </footer>
 
   <script>
@@ -145,7 +428,8 @@
     const totalSlides = slides.length;
 
     function updateCarousel() {
-      track.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
+      track.style.transform = 'translateX(' + (-currentIndex * (slides[0].offsetWidth + 24)) + 'px)';
+      // 24px = gap (1.5rem = 24px) between cards
     }
 
     function moveSlide(direction) {
@@ -155,11 +439,14 @@
       updateCarousel();
     }
 
+    window.addEventListener('resize', updateCarousel);
+
     setInterval(() => {
       moveSlide(1);
     }, 4000);
-  </script>
 
+    // Inicializa o carousel na carga da página
+    window.onload = updateCarousel;
+  </script>
 </body>
 </html>
-
