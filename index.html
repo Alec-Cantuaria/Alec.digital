@@ -181,10 +181,10 @@
     /* Provas Sociais (Testimonials Carousel) */
     .carousel-container {
       position: relative;
-      overflow: hidden; /* Keep overflow hidden for the carousel items */
+      overflow: hidden;
       padding-bottom: 1rem;
       scrollbar-width: none; /* Firefox */
-      margin-bottom: 2rem; /* Add some space below the carousel */
+      margin-bottom: 2rem;
     }
     
     .carousel-container::-webkit-scrollbar {
@@ -201,17 +201,16 @@
     
     .carousel-card {
       background: var(--cor-fundo-secundario);
-      padding: 2rem;
+      padding: 2.5rem; /* Aumentado um pouco o padding */
       border-radius: 12px;
-      /* Largura mínima e máxima para melhor leitura da imagem */
-      min-width: 320px;
-      max-width: 400px;
       flex-shrink: 0;
       box-shadow: 0 5px 15px var(--cor-sombra);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.3s ease; /* Keep individual card hover */
+      align-items: center; /* Centraliza o conteúdo horizontalmente */
+      text-align: center; /* Centraliza o texto */
+      transition: transform 0.3s ease;
     }
     
     .carousel-card:hover {
@@ -220,18 +219,18 @@
 
     .carousel-card .print-depoimento {
       width: 100%;
-      max-height: 300px; /* Aumentado para facilitar leitura */
-      object-fit: contain; /* Ensure image fits without cropping */
+      max-height: 350px; /* Aumentado drasticamente para permitir que a imagem seja maior */
+      object-fit: contain; /* Garante que a imagem se ajuste sem cortar */
       border-radius: 8px;
-      margin-bottom: 1rem;
-      border: 1px solid rgba(0, 230, 118, 0.3); /* Subtle border */
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+      margin-bottom: 1.5rem; /* Mais espaço abaixo da imagem */
+      border: 1px solid rgba(0, 230, 118, 0.3);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       cursor: pointer; /* Indica que é clicável */
       transition: transform 0.3s ease;
     }
     
     .carousel-card .print-depoimento:hover {
-      transform: scale(1.05);
+      transform: scale(1.02); /* Leve zoom ao passar o mouse */
     }
 
     .carousel-card strong {
@@ -245,11 +244,11 @@
         font-weight: 700;
         color: var(--cor-cta-principal);
         margin-top: 1rem;
-        font-size: 1.1em;
+        font-size: 1.3em; /* Levemente maior para destaque */
     }
 
     .carousel-card .cliente {
-        font-size: 0.9em;
+        font-size: 1.05em; /* Um pouco maior */
         color: #bbb;
         margin-top: 0.5rem;
     }
@@ -258,6 +257,7 @@
         font-style: italic;
         margin-top: 1rem;
         color: #ccc;
+        font-size: 1.0em;
     }
 
     .carousel-card .card-link,
@@ -282,9 +282,9 @@
       display: flex;
       justify-content: space-between;
       transform: translateY(-50%);
-      padding: 0 0.5rem; /* Ajuste do padding */
+      padding: 0 0.5rem;
       box-sizing: border-box;
-      z-index: 10; /* Sobre os itens do carrossel */
+      z-index: 10;
     }
     
     .carousel-button {
@@ -420,8 +420,9 @@
       
       /* Ajusta largura do card no carrossel para mostrar 3 cards */
       .carousel-card {
-        min-width: 320px;
-        max-width: 400px;
+        width: calc(33.333% - 1rem); /* 3 cards na tela com gap de 1.5rem */
+        min-width: 300px; /* Garante que não fiquem muito pequenos */
+        max-width: 400px; /* Limita a largura para não ficarem gigantes */
       }
     }
 
@@ -432,6 +433,7 @@
         .carousel-card {
           min-width: 90vw; /* maior no mobile para imagem legível */
           max-width: 90vw;
+          margin: 0 auto; /* Centraliza o card no mobile */
         }
     }
   </style>
@@ -473,10 +475,10 @@
         <div class="carousel-container" aria-label="Carrossel de depoimentos" role="region">
           <div class="carousel" id="carouselTrack">
 
-            <article class="carousel-card" tabindex="0" aria-label="Depoimento 1">
-              <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/Infoprodutor%20-active%20campaing.png" alt="Print de leads gerados com ActiveCampaign" class="print-depoimento" loading="lazy">
-              <p class="resultado-destaque">+1.000 leads super alinhados!</p>
-              <p class="cliente">🎓 Infoprodutor em área educacional</p>
+               <article class="carousel-card" tabindex="0" aria-label="Depoimento 4">
+              <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/lan%C3%A7amento%20webn%C3%A1rio.png" alt="Print de inscritos em lançamento com webinário" class="print-depoimento" loading="lazy">
+              <p class="resultado-destaque">3x mais inscritos no lançamento</p>
+              <p class="cliente">📊 Lançamento com webinário</p>
             </article>
 
             <article class="carousel-card" tabindex="0" aria-label="Depoimento 2">
@@ -490,13 +492,13 @@
               <p class="resultado-destaque">78 atendimentos em 3 semanas</p>
               <p class="cliente">🔩 Studio de Piercing</p>
             </article>
-
-            <article class="carousel-card" tabindex="0" aria-label="Depoimento 4">
-              <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/lan%C3%A7amento%20webn%C3%A1rio.png" alt="Print de inscritos em lançamento com webinário" class="print-depoimento" loading="lazy">
-              <p class="resultado-destaque">3x mais inscritos no lançamento</p>
-              <p class="cliente">📊 Lançamento com webinário</p>
+            
+             <article class="carousel-card" tabindex="0" aria-label="Depoimento 1">
+              <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/Infoprodutor%20-active%20campaing.png" alt="Print de leads gerados com ActiveCampaign" class="print-depoimento" loading="lazy">
+              <p class="resultado-destaque">+1.000 leads super alinhados!</p>
+              <p class="cliente">🎓 Infoprodutor em área educacional</p>
             </article>
-
+         
           </div>
 
           <div class="carousel-buttons">
@@ -522,7 +524,6 @@
     </div>
   </footer>
 
-  <!-- Modal para imagem ampliada -->
   <div id="imgModal" role="dialog" aria-modal="true" aria-label="Visualização da imagem ampliada" tabindex="-1">
     <span class="close-area" aria-label="Fechar modal" role="button" tabindex="0">&times;</span>
     <img src="" alt="Imagem ampliada" />
@@ -533,28 +534,88 @@
     const carousel = document.getElementById('carouselTrack');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
-    const cardWidth = 320 + 24; // largura card + gap estimado
+    let scrollPosition = 0; // Usaremos para controlar a posição do scroll
 
-    let scrollAmount = 0;
+    // Função para calcular a largura de um card + gap
+    function getCardAndGapWidth() {
+      if (carousel.children.length === 0) return 0;
+      const firstCard = carousel.children[0];
+      const cardWidth = firstCard.offsetWidth; // Largura real do card
+      const style = window.getComputedStyle(carousel);
+      const gap = parseFloat(style.gap); // Pega o valor do gap CSS
+      return cardWidth + gap;
+    }
 
+    // Event Listeners para os botões de navegação
     prevBtn.addEventListener('click', () => {
-      scrollAmount -= cardWidth;
-      if (scrollAmount < 0) scrollAmount = 0;
+      const step = getCardAndGapWidth();
+      scrollPosition -= step;
+      // Garante que não scrolla para um valor negativo (além do início)
+      if (scrollPosition < 0) {
+        scrollPosition = 0;
+      }
       carousel.scrollTo({
-        left: scrollAmount,
+        left: scrollPosition,
         behavior: 'smooth'
       });
     });
 
     nextBtn.addEventListener('click', () => {
-      scrollAmount += cardWidth;
+      const step = getCardAndGapWidth();
+      scrollPosition += step;
       const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-      if (scrollAmount > maxScroll) scrollAmount = maxScroll;
+      // Garante que não scrolla além do final
+      if (scrollPosition > maxScroll) {
+        scrollPosition = maxScroll;
+      }
       carousel.scrollTo({
-        left: scrollAmount,
+        left: scrollPosition,
         behavior: 'smooth'
       });
     });
+
+    // Funções para Auto-Slide
+    let autoSlideInterval;
+
+    function startAutoSlide() {
+      autoSlideInterval = setInterval(() => {
+        const step = getCardAndGapWidth();
+        scrollPosition += step;
+        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+        if (scrollPosition >= maxScroll - 5) { // Subtrai um pequeno valor para evitar arredondamento
+          scrollPosition = 0; // Volta para o início se chegou ao final
+        }
+
+        carousel.scrollTo({
+          left: scrollPosition,
+          behavior: 'smooth'
+        });
+      }, 4000); // Rola a cada 4 segundos
+    }
+
+    function stopAutoSlide() {
+      clearInterval(autoSlideInterval);
+    }
+
+    // Iniciar auto-slide quando a página carregar
+    startAutoSlide();
+
+    // Pausar auto-slide no hover e reiniciar no mouseout
+    carousel.addEventListener('mouseenter', stopAutoSlide);
+    carousel.addEventListener('mouseleave', startAutoSlide);
+
+    // Atualizar scrollPosition e recalcular ao redimensionar a janela
+    window.addEventListener('resize', () => {
+      // Ajusta scrollPosition para a posição mais próxima do card visível
+      const currentCardIndex = Math.round(carousel.scrollLeft / getCardAndGapWidth());
+      scrollPosition = currentCardIndex * getCardAndGapWidth();
+      carousel.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+      });
+    });
+
 
     // Modal para imagem ampliada
     (() => {
@@ -566,22 +627,38 @@
         modal.style.display = 'flex';
         modalImg.src = e.currentTarget.src;
         modalImg.alt = e.currentTarget.alt;
-        modal.focus();
+        modal.focus(); // Foca no modal para acessibilidade
+        document.body.style.overflow = 'hidden'; // Evita scroll da página principal
       }
 
       function closeModal() {
         modal.style.display = 'none';
-        modalImg.src = '';
+        modalImg.src = ''; // Limpa a src para economizar memória
+        modalImg.alt = '';
+        document.body.style.overflow = ''; // Restaura scroll da página principal
       }
 
       document.querySelectorAll('.print-depoimento').forEach(img => {
         img.addEventListener('click', openModal);
+        // Adiciona evento para tecla Enter para abrir o modal
+        img.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            openModal(e);
+          }
+        });
       });
 
       closeBtn.addEventListener('click', closeModal);
+      closeBtn.addEventListener('keydown', (e) => { // Acessibilidade: fechar com Enter/Espaço no X
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          closeModal();
+        }
+      });
+
 
       modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
+        if (e.target === modal) closeModal(); // Fecha se clicar fora da imagem
       });
 
       window.addEventListener('keydown', (e) => {
