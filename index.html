@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NMF08185KY"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -182,9 +181,10 @@
     /* Provas Sociais (Testimonials Carousel) */
     .carousel-container {
       position: relative;
-      overflow: hidden;
+      overflow: hidden; /* Keep overflow hidden for the carousel items */
       padding-bottom: 1rem;
       scrollbar-width: none; /* Firefox */
+      margin-bottom: 2rem; /* Add some space below the carousel */
     }
     
     .carousel-container::-webkit-scrollbar {
@@ -203,17 +203,28 @@
       background: var(--cor-fundo-secundario);
       padding: 2rem;
       border-radius: 12px;
-      min-width: 300px;
+      min-width: 100%; /* Default to full width on small screens */
       flex-shrink: 0;
       box-shadow: 0 5px 15px var(--cor-sombra);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease; /* Keep individual card hover */
     }
     
     .carousel-card:hover {
       transform: scale(1.03);
+    }
+
+    .carousel-card .print-depoimento {
+      width: 100%;
+      height: auto;
+      max-height: 200px; /* Limit height of testimonial image */
+      object-fit: contain; /* Ensure image fits without cropping */
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(0, 230, 118, 0.3); /* Subtle border */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
     }
     
     .carousel-card strong {
@@ -221,6 +232,77 @@
       color: var(--cor-cta-principal);
       font-weight: 600;
       margin-bottom: 0.5rem;
+    }
+
+    .carousel-card .resultado-destaque {
+        font-weight: 700;
+        color: var(--cor-cta-principal);
+        margin-top: 1rem;
+        font-size: 1.1em;
+    }
+
+    .carousel-card .cliente {
+        font-size: 0.9em;
+        color: #bbb;
+        margin-top: 0.5rem;
+    }
+
+    .carousel-card .citacao {
+        font-style: italic;
+        margin-top: 1rem;
+        color: #ccc;
+    }
+
+    .carousel-card .card-link,
+    .carousel-card .link-card-rodape a {
+        color: var(--cor-cta-principal);
+        text-decoration: none;
+        font-weight: 600;
+        margin-top: 1rem;
+        display: inline-block;
+    }
+
+    .carousel-card .card-link:hover,
+    .carousel-card .link-card-rodape a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Botões do Carrossel */
+    .carousel-buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 0.5rem; /* Adjust padding to bring buttons closer to edge */
+      box-sizing: border-box;
+      z-index: 10; /* Ensure buttons are above carousel items */
+    }
+    
+    .carousel-button {
+      background: var(--cor-cta-principal);
+      border: none;
+      border-radius: 50%;
+      width: 45px; /* Slightly larger buttons */
+      height: 45px;
+      font-size: 1.8rem; /* Larger arrow icon */
+      color: var(--cor-fundo);
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 5px 15px var(--cor-sombra);
+      display: flex; /* Center the arrow */
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .carousel-button:hover {
+      background: var(--cor-cta-hover);
+      transform: scale(1.1); /* Slight grow on hover */
+    }
+
+    .carousel-button:active {
+        transform: scale(0.95);
     }
     
     /* O Que Fazemos (Services Cards) */
@@ -299,37 +381,17 @@
       .features-list li::before {
         margin-bottom: 0.5rem;
       }
+
+      /* Adjust carousel card width for larger screens */
+      .carousel-card {
+        min-width: calc(33.333% - 1rem); /* Show 3 cards with gaps */
+      }
     }
 
-    /* Botões do Carrossel */
-    .carousel-buttons {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      pointer-events: none;
-      padding: 0 1rem;
-      box-sizing: border-box;
-    }
-    
-    .carousel-button {
-      background: var(--cor-cta-principal);
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      font-size: 1.5rem;
-      color: var(--cor-fundo);
-      cursor: pointer;
-      pointer-events: auto;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 5px 15px var(--cor-sombra);
-    }
-    
-    .carousel-button:hover {
-      background: var(--cor-cta-hover);
+    @media (max-width: 767px) {
+        .carousel-buttons {
+            padding: 0 0.2rem; /* Reduce padding for smaller screens */
+        }
     }
   </style>
 </head>
@@ -337,7 +399,7 @@
   <header class="hero">
     <div class="container">
       <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/logo.png" alt="Foto de Perfil" class="profile-img">
-      <h1>Impulsione Seu Negócio  com Tráfego Pago</h1>
+      <h1>Impulsione Seu Negócio com Tráfego Pago</h1>
       <p class="hero-subtitle">Campanhas estratégicas, automações e landing pages que vendem para atrair clientes do seu bairro ou cidade.</p>
       <a href="https://wa.me/5561998200043" class="cta-button">Fale agora comigo no WhatsApp</a>
     </div>
@@ -368,38 +430,35 @@
       <div class="container">
         <h2>Provas Sociais</h2>
         <div class="carousel-container">
-         <div class="carousel" id="carouselTrack">
-  <div class="carousel-card">
-    <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/Infoprodutor%20-active%20campaing.png" alt="Depoimento de Carla Oliveira - Automação ActiveCampaign" class="print-depoimento">
-    <p class="resultado-destaque">+1.000 leads super alinhados!</p>
-    <p class="cliente">🎓 Infoprodutor em área educacional</p>
-  </div>
-  <div class="carousel-card">
-    <a href="https://seusite.com/case-ana-rodrigues" target="_blank" class="card-link">
-      <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/Venda%20de%20curso%20via%20WhatsApp.png" alt="Depoimento de Ana Rodrigues - Venda de curso via WhatsApp" class="print-depoimento">
-      <p class="resultado-destaque">12% de conversão em alunos!</p>
-      <p class="cliente">📱 Venda de curso via WhatsApp</p>
-      <span class="saiba-mais">Ver Case Completo &rarr;</span>
-    </a>
-  </div>
-  <div class="carousel-card">
-    <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/studio%20piercing.png" alt="Depoimento de Caio Vieira - Campanha Studio de Piercing" class="print-depoimento">
-    <p class="resultado-destaque">78 novos atendimentos em 3 semanas!</p>
-    <p class="cliente">🔩 Studio de Piercing</p>
-    <p class="link-card-rodape"><a href="https://seusite.com/cases/#piercing" target="_blank">Leia Mais &rarr;</a></p>
-  </div>
-  <div class="carousel-card">
-    <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/lan%C3%A7amento%20webn%C3%A1rio.png" alt="Depoimento de Simone Batista - Lançamento com webinário" class="print-depoimento">
-    <p class="resultado-destaque">3x mais inscritos no lançamento!</p>
-    <p class="cliente">🚀 Lançamento com webinário</p>
-    <p class="citacao">"A página de captura junto com os e-mails automáticos fez toda a diferença."</p>
-  </div>
-</div>
+          <div class="carousel" id="carouselTrack">
+            <div class="carousel-card">
+              <img src="https://via.placeholder.com/400x200?text=Depoimento+1" alt="Depoimento de Carla Oliveira - Automação ActiveCampaign" class="print-depoimento">
+              <p class="resultado-destaque">+1.000 leads super alinhados!</p>
+              <p class="cliente">🎓 Infoprodutor em área educacional</p>
+            </div>
+            <div class="carousel-card">
+              <a href="https://seusite.com/case-ana-rodrigues" target="_blank" class="card-link">
+                <img src="https://via.placeholder.com/400x200?text=Depoimento+2" alt="Depoimento de Ana Rodrigues - Venda de curso via WhatsApp" class="print-depoimento">
+                <p class="resultado-destaque">12% de conversão em alunos!</p>
+                <p class="cliente">📱 Venda de curso via WhatsApp</p>
+                <span class="saiba-mais">Ver Case Completo &rarr;</span>
+              </a>
+            </div>
+            <div class="carousel-card">
+              <img src="https://via.placeholder.com/400x200?text=Depoimento+3" alt="Depoimento de Caio Vieira - Campanha Studio de Piercing" class="print-depoimento">
+              <p class="resultado-destaque">78 novos atendimentos em 3 semanas!</p>
+              <p class="cliente">🔩 Studio de Piercing</p>
+              <p class="link-card-rodape"><a href="https://seusite.com/cases/#piercing" target="_blank">Leia Mais &rarr;</a></p>
+            </div>
+            <div class="carousel-card">
+              <img src="https://via.placeholder.com/400x200?text=Depoimento+4" alt="Depoimento de Simone Batista - Lançamento com webinário" class="print-depoimento">
+              <p class="resultado-destaque">3x mais inscritos no lançamento!</p>
+              <p class="cliente">🚀 Lançamento com webinário</p>
+              <p class="citacao">"A página de captura junto com os e-mails automáticos fez toda a diferença."</p>
+            </div>
           </div>
           <div class="carousel-buttons">
-            <button class="carousel-button" onclick="moveSlide(-1)">⟨</button>
-            <button class="carousel-button" onclick="moveSlide(1)">⟩</button>
-          </div>
+            <button class="carousel-button" onclick="moveSlide(-1)">&#x276E;</button> <button class="carousel-button" onclick="moveSlide(1)">&#x276F;</button> </div>
         </div>
       </div>
     </section>
@@ -411,7 +470,7 @@
           <div class="service-card">
             <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/negocios%20locais.png" alt="Tráfego Pago">
             <div class="service-card-content">
-              <h3>Tráfego Pago </h3>
+              <h3>Tráfego Pago</h3>
               <p>Campanhas no Instagram e Facebook focadas em atrair clientes. Público segmentado, oferta clara e WhatsApp direto.</p>
             </div>
           </div>
@@ -453,21 +512,59 @@
     const track = document.getElementById('carouselTrack');
     const slides = document.querySelectorAll('.carousel-card');
     const totalSlides = slides.length;
+    let autoSlideInterval;
 
     function updateCarousel() {
-      track.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
+      // Calculate the transform value based on the current index
+      // Each slide is 100% width of its container, plus the gap between slides
+      // On larger screens, the gap is 1.5rem and 3 cards are visible
+      const slideWidth = slides[0].offsetWidth; // Get current width of a slide
+      const gap = parseFloat(getComputedStyle(track).gap); // Get gap value
+      
+      let transformValue;
+      if (window.innerWidth >= 768) {
+        // For larger screens, show 3 cards, so each move is one card width + gap
+        transformValue = -currentIndex * (slideWidth + gap);
+      } else {
+        // For smaller screens, show 1 card, so each move is one card width + gap
+        transformValue = -currentIndex * (slideWidth + gap);
+      }
+      
+      track.style.transform = 'translateX(' + transformValue + 'px)';
     }
 
     function moveSlide(direction) {
       currentIndex += direction;
-      if (currentIndex < 0) currentIndex = totalSlides - 1;
-      if (currentIndex >= totalSlides) currentIndex = 0;
+      if (currentIndex < 0) {
+        currentIndex = totalSlides - 1;
+      } else if (currentIndex >= totalSlides) {
+        currentIndex = 0;
+      }
       updateCarousel();
+      resetAutoSlide();
     }
 
-    setInterval(() => {
-      moveSlide(1);
-    }, 4000);
+    function startAutoSlide() {
+      autoSlideInterval = setInterval(() => {
+        moveSlide(1);
+      }, 4000);
+    }
+
+    function resetAutoSlide() {
+      clearInterval(autoSlideInterval);
+      startAutoSlide();
+    }
+
+    // Initial update and start auto slide
+    updateCarousel();
+    startAutoSlide();
+
+    // Recalculate on window resize to ensure correct positioning
+    window.addEventListener('resize', updateCarousel);
+
+    // Pause auto-slide on hover for better user experience
+    track.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+    track.addEventListener('mouseleave', startAutoSlide);
   </script>
 </body>
 </html>
