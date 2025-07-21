@@ -203,7 +203,9 @@
       background: var(--cor-fundo-secundario);
       padding: 2rem;
       border-radius: 12px;
-      min-width: 100%; /* Default to full width on small screens */
+      /* Largura mínima e máxima para melhor leitura da imagem */
+      min-width: 320px;
+      max-width: 400px;
       flex-shrink: 0;
       box-shadow: 0 5px 15px var(--cor-sombra);
       display: flex;
@@ -218,15 +220,20 @@
 
     .carousel-card .print-depoimento {
       width: 100%;
-      height: auto;
-      max-height: 200px; /* Limit height of testimonial image */
+      max-height: 300px; /* Aumentado para facilitar leitura */
       object-fit: contain; /* Ensure image fits without cropping */
       border-radius: 8px;
       margin-bottom: 1rem;
       border: 1px solid rgba(0, 230, 118, 0.3); /* Subtle border */
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+      cursor: pointer; /* Indica que é clicável */
+      transition: transform 0.3s ease;
     }
     
+    .carousel-card .print-depoimento:hover {
+      transform: scale(1.05);
+    }
+
     .carousel-card strong {
       display: block;
       color: var(--cor-cta-principal);
@@ -275,30 +282,30 @@
       display: flex;
       justify-content: space-between;
       transform: translateY(-50%);
-      padding: 0 0.5rem; /* Adjust padding to bring buttons closer to edge */
+      padding: 0 0.5rem; /* Ajuste do padding */
       box-sizing: border-box;
-      z-index: 10; /* Ensure buttons are above carousel items */
+      z-index: 10; /* Sobre os itens do carrossel */
     }
     
     .carousel-button {
       background: var(--cor-cta-principal);
       border: none;
       border-radius: 50%;
-      width: 45px; /* Slightly larger buttons */
+      width: 45px;
       height: 45px;
-      font-size: 1.8rem; /* Larger arrow icon */
+      font-size: 1.8rem;
       color: var(--cor-fundo);
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.3s ease;
       box-shadow: 0 5px 15px var(--cor-sombra);
-      display: flex; /* Center the arrow */
+      display: flex;
       justify-content: center;
       align-items: center;
     }
     
     .carousel-button:hover {
       background: var(--cor-cta-hover);
-      transform: scale(1.1); /* Slight grow on hover */
+      transform: scale(1.1);
     }
 
     .carousel-button:active {
@@ -370,6 +377,35 @@
       color: #777;
     }
     
+    /* Modal para imagem ampliada */
+    #imgModal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    #imgModal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    }
+
+    #imgModal .close-area {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2.5rem;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+
     @media (min-width: 768px) {
       .features-list {
         grid-template-columns: repeat(3, 1fr);
@@ -381,16 +417,21 @@
       .features-list li::before {
         margin-bottom: 0.5rem;
       }
-
-      /* Adjust carousel card width for larger screens */
+      
+      /* Ajusta largura do card no carrossel para mostrar 3 cards */
       .carousel-card {
-        min-width: calc(33.333% - 1rem); /* Show 3 cards with gaps */
+        min-width: 320px;
+        max-width: 400px;
       }
     }
 
     @media (max-width: 767px) {
         .carousel-buttons {
-            padding: 0 0.2rem; /* Reduce padding for smaller screens */
+            padding: 0 0.2rem;
+        }
+        .carousel-card {
+          min-width: 90vw; /* maior no mobile para imagem legível */
+          max-width: 90vw;
         }
     }
   </style>
@@ -398,10 +439,10 @@
 <body>
   <header class="hero">
     <div class="container">
-      <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/logo.png" alt="Foto de Perfil" class="profile-img">
+      <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/logo.png" alt="Foto de Perfil" class="profile-img" loading="lazy">
       <h1>Impulsione Seu Negócio com Tráfego Pago</h1>
       <p class="hero-subtitle">Campanhas estratégicas, automações e landing pages que vendem para atrair clientes do seu bairro ou cidade.</p>
-      <a href="https://wa.me/5561998200043" class="cta-button">Fale agora comigo no WhatsApp</a>
+      <a href="https://wa.me/5561998200043" class="cta-button" target="_blank" rel="noopener">Fale agora comigo no WhatsApp</a>
     </div>
   </header>
 
@@ -427,147 +468,128 @@
     </section>
 
     <section id="provas">
-  <div class="container">
-    <h2>Provas Sociais</h2>
-    <div class="carousel-container">
-      <div class="carousel" id="carouselTrack">
-
-        <div class="carousel-card">
-          <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/Infoprodutor%20-active%20campaing.png" alt="Depoimento Carla Oliveira" class="print-depoimento">
-          <p class="resultado-destaque">+1.000 leads super alinhados!</p>
-          <p class="cliente">🎓 Infoprodutor em área educacional</p>
-        </div>
-
-        <div class="carousel-card">
-          <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/Venda%20de%20curso%20via%20WhatsApp.png" alt="Depoimento Ana Rodrigues" class="print-depoimento">
-          <p class="resultado-destaque">12% de conversão em alunos!</p>
-          <p class="cliente">📱 Curso via WhatsApp</p>
-        </div>
-
-        <div class="carousel-card">
-          <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/studio%20piercing.png" alt="Depoimento Caio Vieira" class="print-depoimento">
-          <p class="resultado-destaque">78 atendimentos em 3 semanas</p>
-          <p class="cliente">🔩 Studio de Piercing</p>
-        </div>
-
-        <div class="carousel-card">
-          <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/lan%C3%A7amento%20webn%C3%A1rio.png" alt="Depoimento Simone Batista" class="print-depoimento">
-          <p class="resultado-destaque">3x mais inscritos no lançamento</p>
-          <p class="cliente">📊 Lançamento com webinário</p>
-        </div>
-
-      </div>
-
-      <div class="carousel-buttons">
-        <button class="carousel-button" onclick="moveSlide(-1)">⟨</button>
-        <button class="carousel-button" onclick="moveSlide(1)">⟩</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <section id="solucoes">
       <div class="container">
-        <h2>Nossas Soluções Completas</h2>
-        <div class="services-grid">
-          <div class="service-card">
-            <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/negocios%20locais.png" alt="Tráfego Pago">
-            <div class="service-card-content">
-              <h3>Tráfego Pago</h3>
-              <p>Campanhas no Instagram e Facebook focadas em atrair clientes. Público segmentado, oferta clara e WhatsApp direto.</p>
-            </div>
+        <h2>Provas Sociais</h2>
+        <div class="carousel-container" aria-label="Carrossel de depoimentos" role="region">
+          <div class="carousel" id="carouselTrack">
+
+            <article class="carousel-card" tabindex="0" aria-label="Depoimento 1">
+              <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/Infoprodutor%20-active%20campaing.png" alt="Print de leads gerados com ActiveCampaign" class="print-depoimento" loading="lazy">
+              <p class="resultado-destaque">+1.000 leads super alinhados!</p>
+              <p class="cliente">🎓 Infoprodutor em área educacional</p>
+            </article>
+
+            <article class="carousel-card" tabindex="0" aria-label="Depoimento 2">
+              <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/Venda%20de%20curso%20via%20WhatsApp.png" alt="Print de vendas de curso via WhatsApp" class="print-depoimento" loading="lazy">
+              <p class="resultado-destaque">12% de conversão em alunos!</p>
+              <p class="cliente">📱 Curso via WhatsApp</p>
+            </article>
+
+            <article class="carousel-card" tabindex="0" aria-label="Depoimento 3">
+              <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/studio%20piercing.png" alt="Print de atendimentos em studio de piercing" class="print-depoimento" loading="lazy">
+              <p class="resultado-destaque">78 atendimentos em 3 semanas</p>
+              <p class="cliente">🔩 Studio de Piercing</p>
+            </article>
+
+            <article class="carousel-card" tabindex="0" aria-label="Depoimento 4">
+              <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/lan%C3%A7amento%20webn%C3%A1rio.png" alt="Print de inscritos em lançamento com webinário" class="print-depoimento" loading="lazy">
+              <p class="resultado-destaque">3x mais inscritos no lançamento</p>
+              <p class="cliente">📊 Lançamento com webinário</p>
+            </article>
+
           </div>
-          <div class="service-card">
-            <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/756cb032c454cd87b7ddff63c9bb17870737a67c/automacao.png" alt="Automação WhatsApp">
-            <div class="service-card-content">
-              <h3>Automação no WhatsApp</h3>
-              <p>Resposta automática, qualificação de cliente e integração com planilhas ou CRM. Menos trabalho manual para você.</p>
-            </div>
-          </div>
-          <div class="service-card">
-            <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/landingpage.png" alt="Criação de Sites">
-            <div class="service-card-content">
-              <h3>Landing Pages e Sites</h3>
-              <p>Páginas modernas e responsivas que vendem por você. Ideal para serviços, agendamentos ou mostrar portfólio.</p>
-            </div>
+
+          <div class="carousel-buttons">
+            <button class="carousel-button" id="prevBtn" aria-label="Depoimentos anteriores">&#10094;</button>
+            <button class="carousel-button" id="nextBtn" aria-label="Próximos depoimentos">&#10095;</button>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="contact-cta">
+    <section id="contato" class="contact-cta">
       <div class="container">
-        <h2>Pronto para Vender Mais?</h2>
-        <p>Preencha o formulário e receba uma proposta personalizada para seu negócio, sem compromisso.</p>
-        <a href="https://form.typeform.com/to/DSg7ORvc" class="cta-button">Solicitar um Orçamento</a>
+        <h2>Vamos conversar?</h2>
+        <p>Quer atrair clientes qualificados com estratégias de tráfego e automação? Me chame no WhatsApp agora e saiba como.</p>
+        <a href="https://wa.me/5561998200043" class="cta-button" target="_blank" rel="noopener">Fale comigo no WhatsApp</a>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container">
-      <p>© 2025 Alec Cantuária. Todos os direitos reservados. Tráfego Pago & Automação.</p>
+      &copy; 2025 Alec Cantuária - Todos os direitos reservados.
     </div>
   </footer>
 
+  <!-- Modal para imagem ampliada -->
+  <div id="imgModal" role="dialog" aria-modal="true" aria-label="Visualização da imagem ampliada" tabindex="-1">
+    <span class="close-area" aria-label="Fechar modal" role="button" tabindex="0">&times;</span>
+    <img src="" alt="Imagem ampliada" />
+  </div>
+
   <script>
-    let currentIndex = 0;
-    const track = document.getElementById('carouselTrack');
-    const slides = document.querySelectorAll('.carousel-card');
-    const totalSlides = slides.length;
-    let autoSlideInterval;
+    // Carrossel básico
+    const carousel = document.getElementById('carouselTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const cardWidth = 320 + 24; // largura card + gap estimado
 
-    function updateCarousel() {
-      // Calculate the transform value based on the current index
-      // Each slide is 100% width of its container, plus the gap between slides
-      // On larger screens, the gap is 1.5rem and 3 cards are visible
-      const slideWidth = slides[0].offsetWidth; // Get current width of a slide
-      const gap = parseFloat(getComputedStyle(track).gap); // Get gap value
-      
-      let transformValue;
-      if (window.innerWidth >= 768) {
-        // For larger screens, show 3 cards, so each move is one card width + gap
-        transformValue = -currentIndex * (slideWidth + gap);
-      } else {
-        // For smaller screens, show 1 card, so each move is one card width + gap
-        transformValue = -currentIndex * (slideWidth + gap);
+    let scrollAmount = 0;
+
+    prevBtn.addEventListener('click', () => {
+      scrollAmount -= cardWidth;
+      if (scrollAmount < 0) scrollAmount = 0;
+      carousel.scrollTo({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      scrollAmount += cardWidth;
+      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+      if (scrollAmount > maxScroll) scrollAmount = maxScroll;
+      carousel.scrollTo({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+    });
+
+    // Modal para imagem ampliada
+    (() => {
+      const modal = document.getElementById('imgModal');
+      const modalImg = modal.querySelector('img');
+      const closeBtn = modal.querySelector('.close-area');
+
+      function openModal(e) {
+        modal.style.display = 'flex';
+        modalImg.src = e.currentTarget.src;
+        modalImg.alt = e.currentTarget.alt;
+        modal.focus();
       }
-      
-      track.style.transform = 'translateX(' + transformValue + 'px)';
-    }
 
-    function moveSlide(direction) {
-      currentIndex += direction;
-      if (currentIndex < 0) {
-        currentIndex = totalSlides - 1;
-      } else if (currentIndex >= totalSlides) {
-        currentIndex = 0;
+      function closeModal() {
+        modal.style.display = 'none';
+        modalImg.src = '';
       }
-      updateCarousel();
-      resetAutoSlide();
-    }
 
-    function startAutoSlide() {
-      autoSlideInterval = setInterval(() => {
-        moveSlide(1);
-      }, 4000);
-    }
+      document.querySelectorAll('.print-depoimento').forEach(img => {
+        img.addEventListener('click', openModal);
+      });
 
-    function resetAutoSlide() {
-      clearInterval(autoSlideInterval);
-      startAutoSlide();
-    }
+      closeBtn.addEventListener('click', closeModal);
 
-    // Initial update and start auto slide
-    updateCarousel();
-    startAutoSlide();
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
 
-    // Recalculate on window resize to ensure correct positioning
-    window.addEventListener('resize', updateCarousel);
-
-    // Pause auto-slide on hover for better user experience
-    track.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
-    track.addEventListener('mouseleave', startAutoSlide);
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'flex') {
+          closeModal();
+        }
+      });
+    })();
   </script>
 </body>
 </html>
