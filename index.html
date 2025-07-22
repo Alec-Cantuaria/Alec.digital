@@ -729,20 +729,25 @@
     const successMessage = document.getElementById('successMessage');
     const errorMessage = document.getElementById('errorMessage');
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      successMessage.style.display = 'none';
-      errorMessage.style.display = 'none';
+  form.addEventListener('submit', (e) => {
+  e.preventDefault();
 
-      const nome = form.nome.value.trim();
-      const email = form.email.value.trim();
+  const nome = form.nome.value.trim();
+  const email = form.email.value.trim();
 
-      if (nome.length < 2 || !email.includes('@')) {
-        errorMessage.textContent = 'Preencha nome e e-mail válidos.';
-        errorMessage.style.display = 'block';
-        return;
-      }
+  if (nome.length < 2 || !email.includes('@')) {
+    errorMessage.textContent = 'Preencha nome e e-mail válidos.';
+    errorMessage.style.display = 'block';
+    return;
+  }
 
+  // Cria a mensagem
+  const mensagem = `Olá, meu nome é ${encodeURIComponent(nome)} e meu e-mail é ${encodeURIComponent(email)}. Quero ajuda com tráfego pago.`;
+
+  // Redireciona para o WhatsApp com a mensagem
+  window.open(`https://wa.me/5561998200043?text=${mensagem}`, '_blank');
+});
+    
       // Simula envio (substituir por backend real)
       setTimeout(() => {
         successMessage.style.display = 'block';
