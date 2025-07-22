@@ -725,28 +725,31 @@
     });
 
     // Formulário simulado para demonstração
-    const form = document.getElementById('leadForm');
-    const successMessage = document.getElementById('successMessage');
-    const errorMessage = document.getElementById('errorMessage');
+    <script>
+  const form = document.getElementById('leadForm');
+  const errorMessage = document.getElementById('errorMessage');
 
-  form.addEventListener('submit', (e) => {
-  e.preventDefault();
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-  const nome = form.nome.value.trim();
-  const email = form.email.value.trim();
+    const nome = form.nome.value.trim();
+    const email = form.email.value.trim();
 
-  if (nome.length < 2 || !email.includes('@')) {
-    errorMessage.textContent = 'Preencha nome e e-mail válidos.';
-    errorMessage.style.display = 'block';
-    return;
-  }
+    if (nome.length < 2 || !email.includes('@')) {
+      errorMessage.textContent = 'Preencha nome e e-mail válidos.';
+      errorMessage.style.display = 'block';
+      return;
+    }
 
-  // Cria a mensagem
-  const mensagem = `Olá, meu nome é ${encodeURIComponent(nome)} e meu e-mail é ${encodeURIComponent(email)}. Quero ajuda com tráfego pago.`;
+    const numeroWhatsApp = '5561998200043'; // seu número com DDI + DDD + número
+    const mensagem = `Olá, meu nome é ${nome} e meu e-mail é ${email}. Quero ajuda com tráfego pago.`;
 
-  // Redireciona para o WhatsApp com a mensagem
-  window.open(`https://wa.me/5561998200043?text=${mensagem}`, '_blank');
-});
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+    
+    // Redireciona para o WhatsApp
+    window.open(url, '_blank');
+  });
+</script>
     
       // Simula envio (substituir por backend real)
       setTimeout(() => {
