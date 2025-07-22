@@ -6,64 +6,61 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+
   gtag('config', 'G-NMF08185KY');
 </script>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tráfego Pago e Automação para Infoprodutores | Alec Cantuária</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tráfego Pago e Automação | Especialista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* === VARIÁVEIS E RESET === */
+    /* Estilos Gerais */
     :root {
       --cor-fundo: #0a0a0a;
       --cor-fundo-secundario: #121212;
       --cor-texto: #e0e0e0;
-      --cor-texto-titulo: #fff;
-      --cor-cta-principal: #00e676;
+      --cor-texto-titulo: #ffffff;
+      --cor-cta-principal: #00e676; /* Verde Neon */
       --cor-cta-hover: #00c853;
       --cor-sombra: rgba(0, 0, 0, 0.4);
-      --cor-erro: #ff5252;
-      --cor-sucesso: #00c853;
     }
+    
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+    
     html {
       scroll-behavior: smooth;
     }
+    
     body {
       font-family: 'Poppins', sans-serif;
       background-color: var(--cor-fundo);
       color: var(--cor-texto);
       line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
+    
     .container {
       max-width: 1000px;
       margin: auto;
       padding: 0 1.5rem;
     }
-    h1,
-    h2,
-    h3 {
+    
+    h1, h2 {
       color: var(--cor-texto-titulo);
       font-weight: 700;
       line-height: 1.2;
     }
+    
     h1 {
       font-size: clamp(2rem, 5vw, 3.5rem);
       margin-bottom: 0.5rem;
     }
+    
     h2 {
       font-size: clamp(1.8rem, 4vw, 2.5rem);
       text-align: center;
@@ -71,6 +68,7 @@
       position: relative;
       display: inline-block;
     }
+    
     h2::after {
       content: '';
       position: absolute;
@@ -82,16 +80,11 @@
       background-color: var(--cor-cta-principal);
       border-radius: 2px;
     }
-    h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+    
+    section {
+      padding: 5rem 0;
     }
-    p {
-      font-size: 1.1rem;
-      color: #ccc;
-      margin-bottom: 1rem;
-    }
-    /* BOTÕES CTA */
+    
     .cta-button {
       background: var(--cor-cta-principal);
       color: var(--cor-fundo);
@@ -103,29 +96,22 @@
       margin-top: 2rem;
       transition: background-color 0.3s ease, transform 0.3s ease;
       box-shadow: 0 8px 15px var(--cor-sombra);
-      cursor: pointer;
-      border: none;
-      font-size: 1.1rem;
-      text-align: center;
-      user-select: none;
     }
-    .cta-button:hover,
-    .cta-button:focus {
+    
+    .cta-button:hover {
       background: var(--cor-cta-hover);
       transform: translateY(-3px);
-      outline: none;
     }
-    /* Header hero */
+    
+    /* Header (Hero Section) */
     .hero {
       background-color: var(--cor-fundo-secundario);
       text-align: center;
-      padding: 5rem 1.5rem 7rem;
+      padding: 6rem 1.5rem;
       position: relative;
       overflow: hidden;
-      border-radius: 12px;
-      margin-top: 3rem;
-      box-shadow: 0 10px 30px var(--cor-sombra);
     }
+    
     .hero::before {
       content: '';
       position: absolute;
@@ -136,8 +122,8 @@
       background: rgba(0, 230, 118, 0.1);
       border-radius: 50%;
       filter: blur(80px);
-      pointer-events: none;
     }
+    
     .profile-img {
       max-width: 150px;
       width: 100%;
@@ -147,116 +133,64 @@
       border: 5px solid var(--cor-cta-principal);
       margin-bottom: 1.5rem;
       animation: pulse 2s infinite;
-      filter: drop-shadow(0 0 5px var(--cor-cta-principal));
     }
+    
     @keyframes pulse {
-      0% {
-        box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.4);
-      }
-      70% {
-        box-shadow: 0 0 0 20px rgba(0, 230, 118, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(0, 230, 118, 0);
-      }
+      0% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.4); }
+      70% { box-shadow: 0 0 0 20px rgba(0, 230, 118, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0); }
     }
+    
     .hero-subtitle {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       max-width: 600px;
       margin: 0 auto;
-      color: #aeea00;
-      font-weight: 600;
     }
-   /* SOBRE MIM */
-  #sobre {
-    background: var(--cor-fundo-secundario);
-    padding: 3rem 1.5rem;
-    border-radius: 12px;
-    max-width: 900px;
-    margin: 3rem auto 5rem;
-    box-shadow: 0 10px 30px var(--cor-sombra);
-  }
-  #sobre .sobre-container {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-#sobre img {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center top; /* novo */
-  border: 4px solid var(--cor-cta-principal);
-  filter: drop-shadow(0 0 6px var(--cor-cta-principal));
-  flex-shrink: 0;
-  margin-top: 20px;
-}
-    #sobre .sobre-texto {
-      color: var(--cor-texto);
-      max-width: 700px;
-    }
-    #sobre .sobre-texto h3 {
-      color: var(--cor-cta-principal);
-      margin-bottom: 0.5rem;
-    }
-    /* Features list */
-    #servicos {
-      margin-bottom: 5rem;
-    }
+    
+    /* Características (Services) */
     .features-list {
       display: grid;
-      gap: 2rem;
+      gap: 1.5rem;
       list-style: none;
       margin-bottom: 2rem;
     }
+    
     .features-list li {
       background: var(--cor-fundo-secundario);
-      padding: 1.75rem 2rem;
+      padding: 1.5rem;
       border-radius: 12px;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       gap: 1rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: default;
     }
+    
     .features-list li:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 20px var(--cor-sombra);
     }
+    
     .features-list li::before {
       content: '✔';
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       color: var(--cor-cta-principal);
       font-weight: 700;
       flex-shrink: 0;
-      margin-top: 3px;
     }
-    .features-list li h3 {
-      font-size: 1.3rem;
-      color: var(--cor-cta-principal);
-      margin-bottom: 0.5rem;
-    }
-    .features-list li p {
-      color: #bbb;
-      font-size: 1.05rem;
-      line-height: 1.4;
-    }
-    /* Carrossel provas sociais */
-    #provas {
-      margin-bottom: 2rem;
-    }
+    
+    /* Provas Sociais (Testimonials Carousel) */
     .carousel-container {
       position: relative;
       overflow: hidden;
       padding-bottom: 1rem;
-      scrollbar-width: none;
+      scrollbar-width: none; /* Firefox */
       margin-bottom: 2rem;
     }
+    
     .carousel-container::-webkit-scrollbar {
-      display: none;
+      display: none; /* Chrome, Safari */
     }
+    
     .carousel {
       display: flex;
       gap: 1.5rem;
@@ -264,56 +198,83 @@
       transition: transform 0.5s ease;
       will-change: transform;
     }
+    
     .carousel-card {
       background: var(--cor-fundo-secundario);
-      padding: 2.5rem 1.5rem;
+      padding: 2.5rem; /* Aumentado um pouco o padding */
       border-radius: 12px;
       flex-shrink: 0;
       box-shadow: 0 5px 15px var(--cor-sombra);
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      text-align: center;
+      justify-content: space-between;
+      align-items: center; /* Centraliza o conteúdo horizontalmente */
+      text-align: center; /* Centraliza o texto */
       transition: transform 0.3s ease;
-      width: 320px;
-      min-width: 320px;
-      max-width: 350px;
     }
+    
     .carousel-card:hover {
       transform: scale(1.03);
     }
+
     .carousel-card .print-depoimento {
       width: 100%;
-      max-height: 280px;
-      object-fit: contain;
+      max-height: 350px; /* Aumentado drasticamente para permitir que a imagem seja maior */
+      object-fit: contain; /* Garante que a imagem se ajuste sem cortar */
       border-radius: 8px;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem; /* Mais espaço abaixo da imagem */
       border: 1px solid rgba(0, 230, 118, 0.3);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
+      cursor: pointer; /* Indica que é clicável */
       transition: transform 0.3s ease;
     }
+    
     .carousel-card .print-depoimento:hover {
-      transform: scale(1.02);
+      transform: scale(1.02); /* Leve zoom ao passar o mouse */
     }
-    .carousel-card strong,
-    .carousel-card .resultado-destaque {
-      font-weight: 700;
+
+    .carousel-card strong {
+      display: block;
       color: var(--cor-cta-principal);
-      margin-bottom: 0.25rem;
-      font-size: 1.25rem;
-    }
-    .carousel-card .cliente {
-      font-size: 1.05rem;
-      color: #bbb;
+      font-weight: 600;
       margin-bottom: 0.5rem;
     }
-    .carousel-card .citacao {
-      font-style: italic;
-      color: #ccc;
-      font-size: 1rem;
+
+    .carousel-card .resultado-destaque {
+        font-weight: 700;
+        color: var(--cor-cta-principal);
+        margin-top: 1rem;
+        font-size: 1.3em; /* Levemente maior para destaque */
     }
+
+    .carousel-card .cliente {
+        font-size: 1.05em; /* Um pouco maior */
+        color: #bbb;
+        margin-top: 0.5rem;
+    }
+
+    .carousel-card .citacao {
+        font-style: italic;
+        margin-top: 1rem;
+        color: #ccc;
+        font-size: 1.0em;
+    }
+
+    .carousel-card .card-link,
+    .carousel-card .link-card-rodape a {
+        color: var(--cor-cta-principal);
+        text-decoration: none;
+        font-weight: 600;
+        margin-top: 1rem;
+        display: inline-block;
+    }
+
+    .carousel-card .card-link:hover,
+    .carousel-card .link-card-rodape a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Botões do Carrossel */
     .carousel-buttons {
       position: absolute;
       top: 50%;
@@ -325,6 +286,7 @@
       box-sizing: border-box;
       z-index: 10;
     }
+    
     .carousel-button {
       background: var(--cor-cta-principal);
       border: none;
@@ -339,85 +301,73 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      user-select: none;
     }
+    
     .carousel-button:hover {
       background: var(--cor-cta-hover);
       transform: scale(1.1);
     }
+
     .carousel-button:active {
-      transform: scale(0.95);
+        transform: scale(0.95);
     }
-    /* CTA extra após provas sociais */
-    #cta-extra {
-      text-align: center;
-      margin-bottom: 5rem;
+    
+    /* O Que Fazemos (Services Cards) */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
     }
-    /* Formulário de contato simples */
-    form {
-      max-width: 480px;
-      margin: 0 auto;
+    
+    .service-card {
       background: var(--cor-fundo-secundario);
-      padding: 2rem;
       border-radius: 12px;
-      box-shadow: 0 10px 30px var(--cor-sombra);
-      color: var(--cor-texto);
+      overflow: hidden;
+      box-shadow: 0 5px 15px var(--cor-sombra);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    label {
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px var(--cor-sombra);
+    }
+    
+    .service-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
       display: block;
+    }
+    
+    .service-card-content {
+      padding: 2rem;
+    }
+    
+    .service-card-content h3 {
+      color: var(--cor-cta-principal);
+      font-size: 1.4rem;
       margin-bottom: 0.5rem;
-      font-weight: 600;
-      font-size: 1rem;
     }
-    input[type='text'],
-    input[type='email'] {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      margin-bottom: 1.25rem;
-      border-radius: 8px;
-      border: 1px solid #555;
-      background: #222;
-      color: #eee;
-      font-size: 1rem;
-      transition: border-color 0.3s ease;
+    
+    /* Formulário (CTA Section) */
+    .contact-cta {
+      background-color: var(--cor-fundo-secundario);
+      text-align: center;
+      border-radius: 12px;
+      padding: 4rem 2rem;
+      box-shadow: 0 10px 30px var(--cor-sombra);
     }
-    input[type='text']:focus,
-    input[type='email']:focus {
-      outline: none;
-      border-color: var(--cor-cta-principal);
-      box-shadow: 0 0 5px var(--cor-cta-principal);
-      background: #111;
+    
+    .contact-cta h2 {
+      margin-bottom: 1rem;
     }
-    .form-btn {
-      background: var(--cor-cta-principal);
-      border: none;
-      color: var(--cor-fundo);
-      font-weight: 700;
+    
+    .contact-cta p {
       font-size: 1.1rem;
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      cursor: pointer;
-      width: 100%;
-      transition: background-color 0.3s ease;
-      user-select: none;
+      max-width: 700px;
+      margin: 0 auto 2rem;
     }
-    .form-btn:hover,
-    .form-btn:focus {
-      background: var(--cor-cta-hover);
-      outline: none;
-    }
-    /* Mensagem de sucesso e erro */
-    .form-message {
-      font-weight: 600;
-      margin-top: 1rem;
-      display: none;
-    }
-    .form-message.success {
-      color: var(--cor-sucesso);
-    }
-    .form-message.error {
-      color: var(--cor-erro);
-    }
+    
     /* Footer */
     footer {
       background-color: var(--cor-fundo-secundario);
@@ -425,29 +375,27 @@
       padding: 2.5rem 1.5rem;
       font-size: 0.8rem;
       color: #777;
-      margin-top: auto;
     }
-    /* Modal imagem ampliada */
+    
+    /* Modal para imagem ampliada */
     #imgModal {
       display: none;
       position: fixed;
       z-index: 9999;
-      left: 0;
-      top: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.85);
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0,0,0,0.8);
       justify-content: center;
       align-items: center;
-      padding: 1rem;
     }
+
     #imgModal img {
       max-width: 90vw;
       max-height: 90vh;
       border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-      user-select: none;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
     }
+
     #imgModal .close-area {
       position: absolute;
       top: 20px;
@@ -457,7 +405,7 @@
       cursor: pointer;
       user-select: none;
     }
-    /* Responsividade */
+
     @media (min-width: 768px) {
       .features-list {
         grid-template-columns: repeat(3, 1fr);
@@ -469,305 +417,256 @@
       .features-list li::before {
         margin-bottom: 0.5rem;
       }
+      
+      /* Ajusta largura do card no carrossel para mostrar 3 cards */
       .carousel-card {
-        width: 320px;
-        min-width: 320px;
-        max-width: 350px;
-      }
-      #sobre .sobre-container {
-        flex-wrap: nowrap;
+        width: calc(33.333% - 1rem); /* 3 cards na tela com gap de 1.5rem */
+        min-width: 300px; /* Garante que não fiquem muito pequenos */
+        max-width: 400px; /* Limita a largura para não ficarem gigantes */
       }
     }
+
     @media (max-width: 767px) {
-      .carousel-buttons {
-        padding: 0 0.2rem;
-      }
-      .carousel-card {
-        min-width: 90vw;
-        max-width: 90vw;
-        margin: 0 auto;
-      }
-      #sobre .sobre-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      #sobre img {
-        margin-bottom: 1rem;
-      }
+        .carousel-buttons {
+            padding: 0 0.2rem;
+        }
+        .carousel-card {
+          min-width: 90vw; /* maior no mobile para imagem legível */
+          max-width: 90vw;
+          margin: 0 auto; /* Centraliza o card no mobile */
+        }
     }
   </style>
 </head>
 <body>
   <header class="hero">
     <div class="container">
-      <!-- Foto sua (ou logo, mas recomendo foto para gerar conexão) -->
-      <img
-        src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/logo.png"
-        alt="Foto de Alec Cantuária"
-        class="profile-img"
-        loading="lazy"
-      />
-      <h1>
-        Especialista em Tráfego Pago e Automação para Infoprodutores e Negócios
-        Locais
-      </h1>
-      <p class="hero-subtitle">
-        Chega de desperdiçar com anúncios sem retorno. Eu te ajudo a escalar suas vendas com campanhas inteligentes e automações que realmente geram resultados.
-      </p>
-      <a
-        href="https://wa.me/5561998200043"
-        class="cta-button"
-        target="_blank"
-        rel="noopener"
-        >Fale comigo agora no WhatsApp</a
-      >
+      <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/logo.png" alt="Foto de Perfil" class="profile-img" loading="lazy">
+      <h1>Impulsione Seu Negócio com Tráfego Pago</h1>
+      <p class="hero-subtitle">Campanhas estratégicas, automações e landing pages que vendem para atrair clientes do seu bairro ou cidade.</p>
+      <a href="https://wa.me/5561998200043" class="cta-button" target="_blank" rel="noopener">Fale agora comigo no WhatsApp</a>
     </div>
   </header>
 
-  <!-- Sobre mim -->
-  <section id="sobre">
-    <div class="sobre-container container">
-      <img
-        src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/eu%20black%20and%20white.jpg"
-        alt="Foto do Alec Cantuária"
-        loading="lazy"
-      />
-      <div class="sobre-texto">
-        <h3>Alec Cantuária</h3>
-        <p>
-          Atuo como especialista em Full Funnel há mais de 3 anos, integrando tráfego pago, automações inteligentes e páginas que convertem de verdade. 
-          Já ajudei dezenas de infoprodutores e negócios locais a vender mais com estratégias sob medida, baseadas em dados e focadas em performance.
-        </p>
-        <p>
-          Meu compromisso é entregar resultados reais — otimizando seu investimento e acelerando o crescimento do seu negócio digital ou local.
-        </p>
+  <main>
+    <section id="servicos">
+      <div class="container">
+        <h2>O que eu posso fazer por você</h2>
+        <ul class="features-list">
+          <li>
+            <h3>Tráfego Pago Local</h3>
+            <p>Criar anúncios para atrair clientes, usando o poder do Facebook, Instagram e Google.</p>
+          </li>
+          <li>
+            <h3>Automação Inteligente</h3>
+            <p>Automatizar o WhatsApp e Instagram para responder rápido e qualificar os seus leads.</p>
+          </li>
+          <li>
+            <h3>Landing Pages Vendedoras</h3>
+            <p>Construir uma página de vendas profissional e otimizada para converter visitantes em clientes.</p>
+          </li>
+        </ul>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Serviços / benefícios -->
-  <section id="servicos" class="container">
-    <h2>O que você ganha ao trabalhar comigo</h2>
-    <ul class="features-list">
-      <li>
-        <h3>Anúncios que alcançam quem realmente importa</h3>
-        <p>
-          Segmento e crio campanhas no Google Ads e Meta Ads com foco no seu público ideal — gerando leads qualificados e vendas previsíveis.
-        </p>
-      </li>
-      <li>
-        <h3>Funis automatizados que trabalham por você</h3>
-        <p>
-          Construa um fluxo inteligente no e-mail e WhatsApp que engaja, qualifica e converte, mesmo enquanto você dorme.
-        </p>
-      </li>
-      <li>
-      <h3>Páginas de vendas que fazem o visitante agir</h3>
-        <p>
-         Desenvolvo landing pages rápidas, responsivas e persuasivas — com foco total em conversão e retorno sobre o tráfego investido.
-        </p>
-      </li>
-    </ul>
-    <div style="text-align:center;">
-      <a
-        href="https://form.typeform.com/to/DSg7ORvc"
-        class="cta-button"
-        target="_blank"
-        rel="noopener"
-        >Quero vender mais agora</a
-      >
-    </div>
-  </section>
+    <section id="provas">
+      <div class="container">
+        <h2>Provas Sociais</h2>
+        <div class="carousel-container" aria-label="Carrossel de depoimentos" role="region">
+          <div class="carousel" id="carouselTrack">
 
-  <!-- Provas sociais -->
-  <section id="provas" class="container">
-    <h2>Resultados de Clientes</h2>
-    <p style="text-align:center; max-width: 600px; margin: 0 auto 2rem;">
-      Veja na prática o que meus clientes estão dizendo — resultados reais de campanhas e automações que geraram vendas.
-    </p>
-    <div class="carousel-container">
-      <div class="carousel" id="carousel">
-        <div class="carousel-card">
-          <img
-            src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/lan%C3%A7amento%20webn%C3%A1rio.png"
-            alt="Depoimento 1"
-            class="print-depoimento"
-            loading="lazy"
-          />
-          <strong>🎓 Infoprodutor em área educacional</strong>
-          <p class="cliente">Cliente: Simone Batista</p>
-          <p class="citacao">
-            Estratégia de lançamento com automação no WhatsApp e e-mail gerou 3x mais inscritos em comparação ao evento anterior.
+               <article class="carousel-card" tabindex="0" aria-label="Depoimento 4">
+              <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/lan%C3%A7amento%20webn%C3%A1rio.png" alt="Print de inscritos em lançamento com webinário" class="print-depoimento" loading="lazy">
+              <p class="resultado-destaque">3x mais inscritos no lançamento</p>
+              <p class="cliente">📊 Lançamento com webinário</p>
+            </article>
 
-          </p>
-        </div>
-        <div class="carousel-card">
-          <img
-            src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/ana%20rodrigues.png"
-            alt="Depoimento 2"
-            class="print-depoimento"
-            loading="lazy"
-          />
-          <strong>💰 Aumento de faturamento</strong>
-          <p class="cliente">Cliente: Ana Rodrigues</p>
-          <p class="citacao">
-           Estruturamos anúncios que levavam direto para grupos de WhatsApp com conteúdos estratégicos. Resultado: 40% de aumento nas vendas do curso em 60 dias.
-          </p>
-        </div>
-        <div class="carousel-card">
-          <img
-            src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/studio%20piercing.png"
-            alt="Depoimento 3"
-            class="print-depoimento"
-            loading="lazy"
-          />
-          <strong>📈 Négocio Local </strong>
-          <p class="cliente">Cliente: Caio Vieira</p>
-          <p class="citacao">
-           Estratégia local com segmentação + remarketing gerou 78 interações em apenas 3 semanas, aumentando o fluxo no estúdio.
-          </p>
+            <article class="carousel-card" tabindex="0" aria-label="Depoimento 2">
+              <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/Venda%20de%20curso%20via%20WhatsApp.png" alt="Print de vendas de curso via WhatsApp" class="print-depoimento" loading="lazy">
+              <p class="resultado-destaque">12% de conversão em alunos!</p>
+              <p class="cliente">📱 Curso via WhatsApp</p>
+            </article>
+
+            <article class="carousel-card" tabindex="0" aria-label="Depoimento 3">
+              <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/studio%20piercing.png" alt="Print de atendimentos em studio de piercing" class="print-depoimento" loading="lazy">
+              <p class="resultado-destaque">78 atendimentos em 3 semanas</p>
+              <p class="cliente">🔩 Studio de Piercing</p>
+            </article>
+            
+             <article class="carousel-card" tabindex="0" aria-label="Depoimento 1">
+              <img src="https://raw.githubusercontent.com/Alec-Cantuaria/Alec.digital/refs/heads/main/Infoprodutor%20-active%20campaing.png" alt="Print de leads gerados com ActiveCampaign" class="print-depoimento" loading="lazy">
+              <p class="resultado-destaque">+1.000 leads super alinhados!</p>
+              <p class="cliente">🎓 Infoprodutor em área educacional</p>
+            </article>
+         
+          </div>
+
+          <div class="carousel-buttons">
+            <button class="carousel-button" id="prevBtn" aria-label="Depoimentos anteriores">&#10094;</button>
+            <button class="carousel-button" id="nextBtn" aria-label="Próximos depoimentos">&#10095;</button>
+          </div>
         </div>
       </div>
-      <div class="carousel-buttons">
-        <button class="carousel-button" id="prevBtn" aria-label="Slide anterior">‹</button>
-        <button class="carousel-button" id="nextBtn" aria-label="Próximo slide">›</button>
+    </section>
+
+    <section id="contato" class="contact-cta">
+      <div class="container">
+        <h2>Vamos conversar?</h2>
+        <p>Quer atrair clientes qualificados com estratégias de tráfego e automação? Me chame no WhatsApp agora e saiba como.</p>
+        <a href="https://wa.me/5561998200043" class="cta-button" target="_blank" rel="noopener">Fale comigo no WhatsApp</a>
       </div>
-    </div>
-  </section>
-
-  <!-- CTA extra após provas sociais -->
-  <section id="cta-extra">
-    <a
-      href="https://wa.me/5561998200043"
-      class="cta-button"
-      target="_blank"
-      rel="noopener"
-      >Quer resultados assim? Fale comigo no WhatsApp!</a
-    >
-  </section>
-
-  <!-- Formulário para captar leads -->
-  <section id="contato" class="container" style="margin-bottom: 5rem;">
-    <h2>Vamos tirar sua estratégia do papel?</h2>
-    <form id="leadForm" novalidate>
-      <label for="nome">Nome completo</label>
-      <input type="text" id="nome" name="nome" required placeholder="Seu nome" />
-      <label for="email">E-mail</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        required
-        placeholder="seu@email.com"
-      />
-      <button type="submit" class="form-btn">Quero ser ajudado!</button>
-      <p class="form-message success" id="successMessage">
-        Obrigado! Recebemos seus dados e entraremos em contato.
-      </p>
-      <p class="form-message error" id="errorMessage">
-        Ops! Algo deu errado, tente novamente.
-      </p>
-    </form>
-  </section>
+    </section>
+  </main>
 
   <footer>
-    Alec Cantuária © 2025 - Tráfego Pago e Automação para Infoprodutores
+    <div class="container">
+      &copy; 2025 Alec Cantuária - Todos os direitos reservados.
+    </div>
   </footer>
 
-  <!-- Modal para ampliar provas sociais -->
-  <div id="imgModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+  <div id="imgModal" role="dialog" aria-modal="true" aria-label="Visualização da imagem ampliada" tabindex="-1">
     <span class="close-area" aria-label="Fechar modal" role="button" tabindex="0">&times;</span>
     <img src="" alt="Imagem ampliada" />
   </div>
 
-<script>
-  // Carousel simples horizontal com botões
-  const carousel = document.getElementById('carousel');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
+  <script>
+    // Carrossel básico
+    const carousel = document.getElementById('carouselTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let scrollPosition = 0; // Usaremos para controlar a posição do scroll
 
-  prevBtn.addEventListener('click', () => {
-    carousel.scrollBy({ left: -340, behavior: 'smooth' });
-  });
-  nextBtn.addEventListener('click', () => {
-    carousel.scrollBy({ left: 340, behavior: 'smooth' });
-  });
+    // Função para calcular a largura de um card + gap
+    function getCardAndGapWidth() {
+      if (carousel.children.length === 0) return 0;
+      const firstCard = carousel.children[0];
+      const cardWidth = firstCard.offsetWidth; // Largura real do card
+      const style = window.getComputedStyle(carousel);
+      const gap = parseFloat(style.gap); // Pega o valor do gap CSS
+      return cardWidth + gap;
+    }
 
-  // Modal imagem ampliada
-  const imgModal = document.getElementById('imgModal');
-  const modalImg = imgModal.querySelector('img');
-  const closeArea = imgModal.querySelector('.close-area');
-
-  document.querySelectorAll('.print-depoimento').forEach((img) => {
-    img.addEventListener('click', () => {
-      modalImg.src = img.src;
-      imgModal.style.display = 'flex';
-      imgModal.focus();
+    // Event Listeners para os botões de navegação
+    prevBtn.addEventListener('click', () => {
+      const step = getCardAndGapWidth();
+      scrollPosition -= step;
+      // Garante que não scrolla para um valor negativo (além do início)
+      if (scrollPosition < 0) {
+        scrollPosition = 0;
+      }
+      carousel.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+      });
     });
-  });
-  closeArea.addEventListener('click', () => {
-    imgModal.style.display = 'none';
-    modalImg.src = '';
-  });
-  imgModal.addEventListener('click', (e) => {
-    if (e.target === imgModal) {
-      imgModal.style.display = 'none';
-      modalImg.src = '';
-    }
-  });
-  // Fechar modal com teclado
-  imgModal.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      imgModal.style.display = 'none';
-      modalImg.src = '';
-    }
-  });
 
-  // Formulário simulado para demonstração (corrected logic)
-  const form = document.getElementById('leadForm');
-  const successMessage = document.getElementById('successMessage'); // Added this line
-  const errorMessage = document.getElementById('errorMessage');
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const nome = form.nome.value.trim();
-    const email = form.email.value.trim();
-
-    // Reset messages
-    successMessage.style.display = 'none';
-    errorMessage.style.display = 'none';
-
-    if (nome.length < 2 || !email.includes('@')) {
-      errorMessage.textContent = 'Preencha nome e e-mail válidos.';
-      errorMessage.style.display = 'block';
-      return;
-    }
-
-    const numeroWhatsApp = '5561998200043'; // seu número com DDI + DDD + número
-    const mensagem = `Olá, meu nome é ${nome} e meu e-mail é ${email}. Quero ajuda com tráfego pago.`;
-
-    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
-
-    // Open WhatsApp in a new tab
-    window.open(url, '_blank');
-
-    // Simulate successful submission and reset form after a short delay
-    setTimeout(() => {
-      successMessage.style.display = 'block';
-      form.reset();
-    }, 800);
-  });
-</script>
-    
-      // Simula envio (substituir por backend real)
-      setTimeout(() => {
-        successMessage.style.display = 'block';
-        form.reset();
-      }, 800);
+    nextBtn.addEventListener('click', () => {
+      const step = getCardAndGapWidth();
+      scrollPosition += step;
+      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+      // Garante que não scrolla além do final
+      if (scrollPosition > maxScroll) {
+        scrollPosition = maxScroll;
+      }
+      carousel.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+      });
     });
+
+    // Funções para Auto-Slide
+    let autoSlideInterval;
+
+    function startAutoSlide() {
+      autoSlideInterval = setInterval(() => {
+        const step = getCardAndGapWidth();
+        scrollPosition += step;
+        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+        if (scrollPosition >= maxScroll - 5) { // Subtrai um pequeno valor para evitar arredondamento
+          scrollPosition = 0; // Volta para o início se chegou ao final
+        }
+
+        carousel.scrollTo({
+          left: scrollPosition,
+          behavior: 'smooth'
+        });
+      }, 4000); // Rola a cada 4 segundos
+    }
+
+    function stopAutoSlide() {
+      clearInterval(autoSlideInterval);
+    }
+
+    // Iniciar auto-slide quando a página carregar
+    startAutoSlide();
+
+    // Pausar auto-slide no hover e reiniciar no mouseout
+    carousel.addEventListener('mouseenter', stopAutoSlide);
+    carousel.addEventListener('mouseleave', startAutoSlide);
+
+    // Atualizar scrollPosition e recalcular ao redimensionar a janela
+    window.addEventListener('resize', () => {
+      // Ajusta scrollPosition para a posição mais próxima do card visível
+      const currentCardIndex = Math.round(carousel.scrollLeft / getCardAndGapWidth());
+      scrollPosition = currentCardIndex * getCardAndGapWidth();
+      carousel.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+      });
+    });
+
+
+    // Modal para imagem ampliada
+    (() => {
+      const modal = document.getElementById('imgModal');
+      const modalImg = modal.querySelector('img');
+      const closeBtn = modal.querySelector('.close-area');
+
+      function openModal(e) {
+        modal.style.display = 'flex';
+        modalImg.src = e.currentTarget.src;
+        modalImg.alt = e.currentTarget.alt;
+        modal.focus(); // Foca no modal para acessibilidade
+        document.body.style.overflow = 'hidden'; // Evita scroll da página principal
+      }
+
+      function closeModal() {
+        modal.style.display = 'none';
+        modalImg.src = ''; // Limpa a src para economizar memória
+        modalImg.alt = '';
+        document.body.style.overflow = ''; // Restaura scroll da página principal
+      }
+
+      document.querySelectorAll('.print-depoimento').forEach(img => {
+        img.addEventListener('click', openModal);
+        // Adiciona evento para tecla Enter para abrir o modal
+        img.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            openModal(e);
+          }
+        });
+      });
+
+      closeBtn.addEventListener('click', closeModal);
+      closeBtn.addEventListener('keydown', (e) => { // Acessibilidade: fechar com Enter/Espaço no X
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          closeModal();
+        }
+      });
+
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal(); // Fecha se clicar fora da imagem
+      });
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'flex') {
+          closeModal();
+        }
+      });
+    })();
   </script>
 </body>
 </html>
-
