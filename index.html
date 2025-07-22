@@ -681,73 +681,83 @@
     <img src="" alt="Imagem ampliada" />
   </div>
 
-  <script>
-    // Carousel simples horizontal com botões
-    const carousel = document.getElementById('carousel');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
+<script>
+  // Carousel simples horizontal com botões
+  const carousel = document.getElementById('carousel');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
 
-    prevBtn.addEventListener('click', () => {
-      carousel.scrollBy({ left: -340, behavior: 'smooth' });
-    });
-    nextBtn.addEventListener('click', () => {
-      carousel.scrollBy({ left: 340, behavior: 'smooth' });
-    });
+  prevBtn.addEventListener('click', () => {
+    carousel.scrollBy({ left: -340, behavior: 'smooth' });
+  });
+  nextBtn.addEventListener('click', () => {
+    carousel.scrollBy({ left: 340, behavior: 'smooth' });
+  });
 
-    // Modal imagem ampliada
-    const imgModal = document.getElementById('imgModal');
-    const modalImg = imgModal.querySelector('img');
-    const closeArea = imgModal.querySelector('.close-area');
+  // Modal imagem ampliada
+  const imgModal = document.getElementById('imgModal');
+  const modalImg = imgModal.querySelector('img');
+  const closeArea = imgModal.querySelector('.close-area');
 
-    document.querySelectorAll('.print-depoimento').forEach((img) => {
-      img.addEventListener('click', () => {
-        modalImg.src = img.src;
-        imgModal.style.display = 'flex';
-        imgModal.focus();
-      });
+  document.querySelectorAll('.print-depoimento').forEach((img) => {
+    img.addEventListener('click', () => {
+      modalImg.src = img.src;
+      imgModal.style.display = 'flex';
+      imgModal.focus();
     });
-    closeArea.addEventListener('click', () => {
+  });
+  closeArea.addEventListener('click', () => {
+    imgModal.style.display = 'none';
+    modalImg.src = '';
+  });
+  imgModal.addEventListener('click', (e) => {
+    if (e.target === imgModal) {
       imgModal.style.display = 'none';
       modalImg.src = '';
-    });
-    imgModal.addEventListener('click', (e) => {
-      if (e.target === imgModal) {
-        imgModal.style.display = 'none';
-        modalImg.src = '';
-      }
-    });
-    // Fechar modal com teclado
-    imgModal.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        imgModal.style.display = 'none';
-        modalImg.src = '';
-      }
-    });
+    }
+  });
+  // Fechar modal com teclado
+  imgModal.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      imgModal.style.display = 'none';
+      modalImg.src = '';
+    }
+  });
 
-    // Formulário simulado para demonstração
-   <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('leadForm');
-    const errorMessage = document.getElementById('errorMessage');
+  // Formulário simulado para demonstração (corrected logic)
+  const form = document.getElementById('leadForm');
+  const successMessage = document.getElementById('successMessage'); // Added this line
+  const errorMessage = document.getElementById('errorMessage');
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-      const nome = form.querySelector('[name="nome"]').value.trim();
-      const email = form.querySelector('[name="email"]').value.trim();
+    const nome = form.nome.value.trim();
+    const email = form.email.value.trim();
 
-      if (nome.length < 2 || !email.includes('@')) {
-        errorMessage.textContent = 'Preencha nome e e-mail válidos.';
-        errorMessage.style.display = 'block';
-        return;
-      }
+    // Reset messages
+    successMessage.style.display = 'none';
+    errorMessage.style.display = 'none';
 
-      const numeroWhatsApp = '5561998200043'; // Substitua pelo seu número com DDI+DDD+Número
-      const mensagem = `Olá, meu nome é ${nome} e meu e-mail é ${email}. Quero ajuda com tráfego pago.`;
+    if (nome.length < 2 || !email.includes('@')) {
+      errorMessage.textContent = 'Preencha nome e e-mail válidos.';
+      errorMessage.style.display = 'block';
+      return;
+    }
 
-      const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
-      window.open(url, '_blank');
-    });
+    const numeroWhatsApp = '5561998200043'; // seu número com DDI + DDD + número
+    const mensagem = `Olá, meu nome é ${nome} e meu e-mail é ${email}. Quero ajuda com tráfego pago.`;
+
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+
+    // Open WhatsApp in a new tab
+    window.open(url, '_blank');
+
+    // Simulate successful submission and reset form after a short delay
+    setTimeout(() => {
+      successMessage.style.display = 'block';
+      form.reset();
+    }, 800);
   });
 </script>
     
